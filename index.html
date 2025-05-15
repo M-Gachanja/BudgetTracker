@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Budget Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Budget Tracker</h1>
+  <form id="transaction-form">
+    <input type="text" id="description" placeholder="Description" required />
+    <input type="number" id="amount" placeholder="Amount" required />
+    <button type="submit">Add</button>
+  </form>
+
+  <div id="summary">
+    <p>Total Income: <span id="total-income">$0.00</span></p>
+    <p>Total Expenses: <span id="total-expenses">$0.00</span></p>
+    <p>Balance: <span id="balance">$0.00</span></p>
+  </div>
+
+  <ul id="transaction-list"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>

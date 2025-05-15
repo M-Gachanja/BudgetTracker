@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    margin: 5px;
+  }
+  
+  .income {
+    color: green;
+  }
+  
+  .expense {
+    color: red;
+  }
+  
+  button {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
