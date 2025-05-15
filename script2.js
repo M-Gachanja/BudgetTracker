@@ -148,7 +148,7 @@ function applyFilters() {
     
     if (categoryFilter !== 'all') {
         filtered = filtered.filter(t => t.category === categoryFilter);
-    }
+    } 
     
     displayFilteredTransactions(filtered);
 }
