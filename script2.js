@@ -1,4 +1,4 @@
-// DOM Elements
+
 const transactionForm = document.getElementById('transaction-form');
 const descriptionInput = document.getElementById('description');
 const amountInput = document.getElementById('amount');
@@ -9,25 +9,24 @@ const balanceElement = document.getElementById('balance');
 const incomeElement = document.getElementById('income');
 const expensesElement = document.getElementById('expenses');
 
-// Load transactions from localStorage or initialize empty array
+
 let transactions = JSON.parse(localStorage.getItem('budgetTrackerTransactions')) || [];
 
-// Set default date to today
+
 dateInput.value = new Date().toISOString().split('T')[0];
 
-// Format currency as KSH
 function formatCurrency(amount) {
     return 'KSH ' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
-// Save transactions to localStorage
+
 function saveTransactions() {
     localStorage.setItem('budgetTrackerTransactions', JSON.stringify(transactions));
     updateCategoryFilter();
     updateUI();
 }
 
-// Add transaction
+
 transactionForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -53,13 +52,13 @@ transactionForm.addEventListener('submit', function(e) {
     
     saveTransactions();
     
-    // Reset form
+    
     transactionForm.reset();
     dateInput.value = new Date().toISOString().split('T')[0];
     document.getElementById('income-type').checked = true;
 });
 
-// Remove transaction
+
 function removeTransaction(id) {
     if (confirm('Are you sure you want to delete this transaction?')) {
         transactions = transactions.filter(t => t.id !== id);
@@ -67,7 +66,6 @@ function removeTransaction(id) {
     }
 }
 
-// Update UI
 function updateUI() {
     transactionsList.innerHTML = '';
     
@@ -88,7 +86,6 @@ function updateUI() {
     updateTotals();
 }
 
-// Update totals
 function updateTotals() {
     const income = transactions
         .filter(t => t.type === 'income')
@@ -106,7 +103,6 @@ function updateTotals() {
     balanceElement.className = balance >= 0 ? 'positive' : 'negative';
 }
 
-// Update category filter
 function updateCategoryFilter() {
     const filter = document.getElementById('filter-category');
     const currentValue = filter.value;
@@ -123,7 +119,7 @@ function updateCategoryFilter() {
     filter.value = currentValue;
 }
 
-// Filter transactions
+
 document.querySelectorAll('.filter-buttons button, #filter-category').forEach(element => {
     element.addEventListener('click', function() {
         if (this.tagName === 'BUTTON') {
@@ -171,7 +167,7 @@ function displayFilteredTransactions(filteredTransactions) {
     });
 }
 
-// Initial UI update
+
 updateUI();
 updateCategoryFilter();
 document.getElementById('show-all').classList.add('active');
