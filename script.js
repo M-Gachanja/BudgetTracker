@@ -13,7 +13,7 @@ const expensesElement = document.getElementById('expenses');
 let transactions = JSON.parse(localStorage.getItem('budgetTrackerTransactions')) || [];
 
 
-dateInput.value = new Date().toISOString().split('T')[0];
+
 
 function formatCurrency(amount) {
     return 'KSH ' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
